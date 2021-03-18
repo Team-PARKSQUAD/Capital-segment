@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, TextInput} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Button, Alert} from 'react-native';
 
 function AddCompartment({ navigation }) {
     
-    const [text, onChangeText] = React.useState(null);
-    const [number, onChangeNumber] = React.useState(null);
+    const [text, setText] = useState(null);
+    const [number, setNumber] = useState(null);
 
+    const AlertOnScreen = () => {
+        Alert.alert(text.concat(' - ', number) , "Changes Saved")
+    };
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.section} >
@@ -15,7 +18,7 @@ function AddCompartment({ navigation }) {
                 </View>
                 <TextInput
                     style={styles.input}
-                    onChangeText={onChangeText}
+                    onChangeText={text => setText(text)}
                     value={text}
                     placeholder="Enter Name"
                 />
@@ -27,11 +30,13 @@ function AddCompartment({ navigation }) {
                 </View>
                 <TextInput
                     style={styles.input}
-                    onChangeText={onChangeNumber}
+                    onChangeText={number => setNumber(number)}
                     value={number}
                     placeholder="Enter Amount"
-                    keyboardType="numeric"
                 />
+            </View>
+            <View style={styles.section} >
+                <Button title='Submit' onPress={AlertOnScreen} />
             </View>
 
             <StatusBar style="auto" />
