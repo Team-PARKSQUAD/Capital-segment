@@ -6,7 +6,10 @@ export default function Home({ navigation }) {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
-        <Button title="Menu" onPress={() => navigation.push('Menu')} />
+        <View style={styles.app} >
+          <Button title="" onPress={() => navigation.push('Menu')} />
+        </View>
+        <Text style={{ fontSize: 17 }}>Segment</Text>
       </SafeAreaView>
     )
 }
@@ -18,5 +21,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    app: {
+      height: 60,
+      width: 60,
+      borderRadius: 10,
+      backgroundColor: '#0079C1'
+    }
   });
   
