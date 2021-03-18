@@ -1,13 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Button} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import Pie from './PieChart.js';
 
 function CompartmentList({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Compartment List</Text>
             <StatusBar style="auto" />
-            {/* <Button title="Go back" onPress={() => navigation.goBack()} /> */}
+            <Pie/>
         </SafeAreaView>
     )
 }
