@@ -1,14 +1,11 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button} from 'react-native';
-import { useStateValue } from '../context';
 
 function Menu({ navigation }) {
-    const [{ value }, dispatch] = useStateValue()
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
-            <Text>{value.something}</Text>
             <Button title="Compartment List" onPress={() => navigation.push('CompartmentList')} />
             <Button title="Add Compartment" onPress={() => navigation.push('AddCompartment')} />
         </SafeAreaView>

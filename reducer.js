@@ -1,12 +1,14 @@
 export const initialState = {
-    value: {"something": "Some"}
-};
+    list: [
+        {name:"Fee",amount:1000}
+    ]
+}
 
 export const reducer = (state,action) => {
     switch (action.type){
         case 'set_value':
             return{
-                ...state, value: action.setValue
+                ...state, list: action.data
             };
         default:
             return state;    
