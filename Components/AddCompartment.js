@@ -16,7 +16,6 @@ function AddCompartment({ navigation }) {
                 amount: number
             }
         })
-        console.log(list)
         Alert.alert(text.concat(' - ', number) , "Changes Saved")
     };
     return (
