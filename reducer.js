@@ -1,6 +1,7 @@
 export const initialState = {
     list: [
-        {name:"Fee",amount:1000}
+        // Hardcoded Starting balance
+        {name:"Available", amount:50000}
     ]
 }
 
