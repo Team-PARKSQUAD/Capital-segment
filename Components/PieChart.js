@@ -43,7 +43,6 @@ class Pie extends React.PureComponent {
     const deviceWidth = Dimensions.get('window').width
 
 
-
     return (
       <View style={{ justifyContent: 'center', flex: 1, alignItems: 'center' }}>
         <PieChart
