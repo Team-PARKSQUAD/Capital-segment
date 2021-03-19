@@ -2,13 +2,34 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, TextInput, Button, Alert} from 'react-native';
 import { useStateValue } from '../context';
+import AllInOneSDKManager from 'paytm_allinone_react-native';
 
 function AddCompartment({ navigation }) {
     const [ {list}, dispatch] = useStateValue()
     const [text, setText] = useState(null);
     const [number, setNumber] = useState(null);
 
-    const AlertOnScreen = () => {
+    function startPayment() {
+        console.log('Payment Initiated');
+        AllInOneSDKManager.startTransaction(
+            orderId,
+            mid,
+            tranxToken,
+            amount,
+            callbackUrl,
+            isStaging,
+            appInvokeRestricted,
+          )
+          .then((result) => {
+           console.log("result", result); 
+           // handle result ..
+          })
+          .catch((err) => {
+           // handle error ..
+          });
+    }
+
+    function addData() {
         dispatch({
             type: "set_value",
             data: {
@@ -16,7 +37,24 @@ function AddCompartment({ navigation }) {
                 amount: number
             }
         })
-        Alert.alert(text.concat(' - ', number) , "Changes Saved")
+        console.log('Data Added');
+        navigation.push('CompartmentList');
+    }
+
+    const AlertOnScreen = () => {
+        Alert.alert(
+            text.concat(' - ', number), 
+            "Changes Saved",
+            [
+                { text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                },
+                { text: "OK", 
+                // onPress: () => startPayment(),
+                onPress: () => addData(),
+                }
+            ]
+        )
     };
     return (
         <SafeAreaView style={styles.container}>
