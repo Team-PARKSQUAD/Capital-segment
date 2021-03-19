@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, TextInput, Button, Alert} from 'react-native';
+import { useStateValue } from '../context';
 
 function AddCompartment({ navigation }) {
-    
+    const [ {list}, dispatch] = useStateValue()
     const [text, setText] = useState(null);
     const [number, setNumber] = useState(null);
 
     const AlertOnScreen = () => {
+        dispatch({
+            type: "set_value",
+            data: {
+                name: text,
+                amount: number
+            }
+        })
         Alert.alert(text.concat(' - ', number) , "Changes Saved")
     };
     return (

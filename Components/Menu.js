@@ -6,7 +6,6 @@ function Menu({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
-
             <Button title="Compartment List" onPress={() => navigation.push('CompartmentList')} />
             <Button title="Add Compartment" onPress={() => navigation.push('AddCompartment')} />
         </SafeAreaView>
