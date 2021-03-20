@@ -60,7 +60,7 @@ function AddCompartment({ navigation }) {
         <SafeAreaView style={styles.container}>
             <View style={styles.section} >
                 <View style={styles.text} >
-                    <Text style={{ fontWeight: '600', fontSize: 20 }} >Compartment Name:</Text>
+                    <Text style={{ fontWeight: '500', fontSize: 16, color:'white' }} >Compartment Name</Text>
                 </View>
                 <TextInput
                     style={styles.input}
@@ -72,7 +72,7 @@ function AddCompartment({ navigation }) {
 
             <View style={styles.section} >
                 <View style={styles.text} >
-                    <Text style={{ fontWeight: '600', fontSize: 20 }} >Amount:</Text>
+                    <Text style={{ fontWeight: '500', fontSize: 16, color:'white' }} > Amount</Text>
                 </View>
                 <TextInput
                     style={styles.input}
@@ -97,15 +97,17 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-
     },
     section: {
         marginTop: 20,
         height: 80,
     },
     text: {
+        height: 50,
         width: 250,
-        backgroundColor: '#0079C1',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#003966',
         borderRadius: 20,
         padding: 10,
     },

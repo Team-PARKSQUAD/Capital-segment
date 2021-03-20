@@ -6,7 +6,7 @@ import { StateContext } from '../context';
 function Menu({ navigation }) {
     const [{list}, dispatch] = useContext(StateContext)
     const values = [];
-    const accountBal = 50000; // If starting balance in the reducer change, this shoul also change
+    const accountBal = 50000; // If starting balance in the reducer change, this should also change.
     list.map(ls => values.push(  (ls.amount/accountBal) * 100  ))
     values[0] = 100 - values.slice(1).reduce((a, b) => a + b, 0)
     const value = values[0]*500;
@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-    //   justifyContent: 'center',
     },
     buttons: {
         marginTop: 20,
@@ -41,13 +40,14 @@ const styles = StyleSheet.create({
     balance: {
         height: 50,
         width: 200,
-        backgroundColor: '#0079C1',
+        backgroundColor: '#003966',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 20,
     },
     text: {
+        color: 'white',
         fontSize: 15,
         fontWeight: '500',
     }

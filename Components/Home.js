@@ -1,15 +1,18 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Button} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Button, Image} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function Home({ navigation }) {
     return (
       <SafeAreaView style={styles.container}>
+        
         <StatusBar style="auto" />
-        <View style={styles.app} >
-          <Button title="" onPress={() => navigation.push('Menu')} />
-        </View>
+        <TouchableOpacity onPress={() => navigation.push('Menu')}>
+          <Image source = {require('../assets/27306493.jpg')} style={{ width: 80, height: 80 }} />
+        </TouchableOpacity>
         <Text style={{ fontSize: 17 }}>Segment</Text>
+
       </SafeAreaView>
     )
 }
